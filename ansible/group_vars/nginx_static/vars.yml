@@ -1,0 +1,6 @@
+nginx_control_port: 27016
+#ansible_ssh_user: fgsfds
+#ansible_ssh_pass: jx84843xx8743r5e
+ansible_ssh_user: #тут были юзер и пароль
+ansible_sudo_pass: 
+ansible_ssh_private_key_file: ~/.ssh/devup_rsa

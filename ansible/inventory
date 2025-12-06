@@ -1,0 +1,6 @@
+[nginx_static]
+nginx1 ansible_host=45.12.230.153 ansible_port=22
+
+
+
+

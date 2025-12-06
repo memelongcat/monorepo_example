@@ -1,0 +1,13 @@
+- name: Install NGINX package
+  apt:
+    name: nginx
+    state: latest
+    update_cache: yes
+  when: ansible_os_family == "Debian"
+
+- name: Copy NGINX config to /etc/nginx/sites-enabled
+  command: echo "123"
+  notify: 
+    - nginx systemd
+
+
