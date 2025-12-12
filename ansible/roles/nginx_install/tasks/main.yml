@@ -1,4 +1,5 @@
 - name: Install NGINX package
+  become_method: sudo
   apt:
     name: nginx
     state: latest
