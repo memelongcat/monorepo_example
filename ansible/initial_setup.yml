@@ -1,11 +1,11 @@
 ---
-#- name: Install NGINX
-#  become: yes
-#  become_method: sudo
-#  hosts: nginx1
-#  gather_facts: true
-#  roles:
-#    - nginx_install
+- name: Install NGINX
+  become: yes
+  become_method: sudo
+  hosts: nginx1
+  gather_facts: true
+  roles:
+    - nginx_install
 
 - name: Install docker
   become: yes

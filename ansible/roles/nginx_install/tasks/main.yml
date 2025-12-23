@@ -6,9 +6,22 @@
     update_cache: yes
   when: ansible_os_family == "Debian"
 
-- name: Copy NGINX config to /etc/nginx/sites-enabled
-  command: echo "123"
+- name: Copy nginx configs
+  become: true
+  become_method: sudo
+  become_user: root
+  template:
+    src: "{{ item.src }}"
+    dest: "/etc/nginx/sites-enabled"
+    mode: "0700"
+    owner: "root"
+    group: "root"
+  with_community.general.filetree: "../files/"
+
+- name: Check NGINX config 
+  command: nginx -t 
   notify: 
     - nginx systemd
+
 
 

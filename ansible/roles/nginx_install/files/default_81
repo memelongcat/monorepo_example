@@ -1,0 +1,27 @@
+server {
+	listen 81 default_server;
+	listen [::]:81 default_server;
+
+	root /var/www/html;
+
+	# Add index.php to the list if you are using PHP
+	index index.html index.htm index.nginx-debian.html;
+
+	server_name _;
+
+	location /123 {
+		alias /var/www/html;
+	}
+
+	location /rp {
+		proxy_pass http://localhost/123/;
+	}
+
+
+	location / {
+		# First attempt to serve request as file, then
+		# as directory, then fall back to displaying a 404.
+		try_files $uri $uri/ =404;
+	}
+
+}
